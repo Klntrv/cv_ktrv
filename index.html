@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Kylian Trévisan</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-light: #ecf0f1;
+            --bg-body: #f4f7f6;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9em;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            text-transform: uppercase;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+
+        .exp-item, .edu-item {
+            margin-bottom: 20px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .date {
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-badge {
+            background: var(--bg-body);
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-download {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-download:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 600px) {
+            .container { margin: 10px; padding: 20px; }
+            .item-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Kylian Trévisan [cite: 1]</h1>
+        <div class="subtitle">Agent de Sécurité [cite: 2]</div>
+        <div class="contact-info">
+            <span>📍 France [cite: 4]</span>
+            <span>📧 n@orange.fr [cite: 5]</span>
+            <span>🚗 Permis B [cite: 5]</span>
+            <span>🌐 <a href="http://www.kykicv.ch" target="_blank">www.kykicv.ch</a> [cite: 44]</span>
+        </div>
+    </header>
+
+    <section id="presentation">
+        <h2>Présentation</h2>
+        <p>
+            Actuellement Agent de Loge dans un Data Center à Gland[cite: 6, 29]. 
+            Je possède une solide expérience dans la gestion de la sécurité, l'accueil technique et la gestion de situations complexes en environnement international[cite: 7, 31, 32].
+        </p>
+    </section>
+
+    <section id="experiences">
+        <h2>Expériences Professionnelles</h2>
+        
+        <div class="exp-item">
+            <div class="item-header">
+                <span>Agent de Loge - Securitas (Data Center) [cite: 29]</span>
+                <span class="date">Depuis Mai 2021 [cite: 30]</span>
+            </div>
+            <ul>
+                <li>Gestion des accès, accueil et accompagnement des clients et techniciens[cite: 31].</li>
+                <li>Surveillance physique et vidéo, opération du système de sécurité incendie[cite: 31, 33].</li>
+                <li>Permanence téléphonique et gestion des demandes d'infrastructure[cite: 31, 33].</li>
+            </ul>
+        </div>
+
+        <div class="exp-item">
+            <div class="item-header">
+                <span>Agent de Sécurité - Securitas (Genève) [cite: 20]</span>
+                <span class="date">Avril 2016 - Avril 2021 [cite: 21]</span>
+            </div>
+            <ul>
+                <li>Contrôle d'accès et escorte sur sites sécurisés[cite: 22, 23].</li>
+                <li>Sécurisation de centres d'hébergement d'urgence (Covid-19) et sites à risques[cite: 23, 24].</li>
+                <li>Gestion des urgences et application des mesures sanitaires[cite: 22, 24].</li>
+            </ul>
+        </div>
+
+        <div class="exp-item">
+            <div class="item-header">
+                <span>Guide Accrobranche - Forest-Land [cite: 9]</span>
+                <span class="date">2013 - 2018 (Saisonnier) [cite: 10]</span>
+            </div>
+            <ul>
+                <li>Sécurisation des activités et secours en hauteur[cite: 11].</li>
+                <li>Instruction et entretien du matériel d'escalade[cite: 11].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="competences">
+        <h2>Compétences</h2>
+        <div class="skills-container">
+            <div class="skill-badge">
+                <strong>Informatique :</strong> Word, Excel, Outils IA [cite: 15, 19]
+            </div>
+            <div class="skill-badge">
+                <strong>Sécurité :</strong> Formation BA4 électrique [cite: 16], Systèmes incendie/vidéo [cite: 31]
+            </div>
+            <div class="skill-badge">
+                <strong>Langues :</strong> Français (Maternel), Anglais (B2/C1) [cite: 27, 28]
+            </div>
+            <div class="skill-badge">
+                <strong>Soft Skills :</strong> Analyse, Travail en équipe, Gestion du stress [cite: 17, 18, 32]
+            </div>
+        </div>
+    </section>
+
+    <section id="formation">
+        <h2>Formation</h2>
+        <div class="edu-item">
+            <div class="item-header">
+                <span>Licence de Physique (Inachevée) - Fac de Science, Montpellier [cite: 41]</span>
+                <span class="date">2017 - 2018 [cite: 41]</span>
+            </div>
+        </div>
+        <div class="edu-item">
+            <div class="item-header">
+                <span>Année préparatoire scientifique - Cours Galien [cite: 39]</span>
+                <span class="date">2016 - 2017 [cite: 40]</span>
+            </div>
+        </div>
+        <div class="edu-item">
+            <div class="item-header">
+                <span>Baccalauréat Économie - Lycée Jeanne d'Arc [cite: 38]</span>
+                <span class="date">2015 - 2016 [cite: 38]</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="btn-container">
+        <a href="CV 1.docx.pdf" class="btn-download" download>Télécharger mon CV en PDF</a>
+    </div>
+</div>
+
+</body>
+</html>
