@@ -1,243 +1,907 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV | Kylian Trévisan</title>
+    <title>CV | Kylian Trévisan - Agent de Sécurité & Infrastructure</title>
     <style>
+        /* === VARIABLES & THEME === */
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #3498db;
-            --text-light: #ecf0f1;
-            --bg-body: #f4f7f6;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --accent: #3b82f6;
+            --border: rgba(0, 0, 0, 0.06);
+            --shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: var(--bg-body);
+        [data-theme="dark"] {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --primary: #3b82f6;
+            --primary-hover: #60a5fa;
+            --accent: #60a5fa;
+            --border: rgba(255, 255, 255, 0.12);
+            --shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+        }
+
+        /* === GLOBAL STYLES === */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        /* Accessibilité : Focus clavier */
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        /* === LAYOUT === */
+        .app-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Top Bar (Theme Toggle) */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: -1rem;
+        }
+
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 0.75rem;
+            border-radius: 50%;
+            cursor: pointer;
             box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        header {
-            text-align: center;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--primary);
         }
 
-        h1 {
-            margin: 0;
-            color: var(--primary-color);
-            font-size: 2.5em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        /* === HERO SECTION === */
+        .hero {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
         }
 
-        .subtitle {
-            font-size: 1.2em;
-            color: var(--accent-color);
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), #8b5cf6, var(--primary));
+            background-size: 200% auto;
+            animation: gradientMove 5s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--text-main), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-body);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary);
+            color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--primary);
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            border-left: 4px solid var(--primary);
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+            line-height: 1.8;
+        }
+
+        /* === SAUCE MAGIQUE : ATOUTS OPÉRATIONNELS === */
+        .operational-assets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .asset-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--bg-body);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .asset-badge:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Effet "Serveur/Monitoring" très subtil */
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981; /* Vert Émeraude */
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+            animation: pulse-dot 2.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* === BENTO GRID (Main Content) === */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 15px 50px -10px rgba(0,0,0,0.12);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-header svg {
+            width: 28px;
+            height: 28px;
+            color: var(--primary);
+        }
+
+        .card-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* === TIMELINE (Experiences) === */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Animation Pulse pour le poste actuel */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.3rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 3px solid var(--border);
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .timeline-item.current::before {
+            border-color: var(--primary);
+            background: var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-item:not(.current):hover::before {
+            border-color: var(--primary);
+            background: var(--bg-card);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .timeline-company {
+            color: var(--primary);
             font-weight: 600;
         }
 
-        .contact-info {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 0.9em;
-        }
-
-        section {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
-            text-transform: uppercase;
-            font-size: 1.4em;
-            margin-bottom: 20px;
-        }
-
-        .exp-item, .edu-item {
-            margin-bottom: 20px;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            color: var(--secondary-color);
-        }
-
-        .date {
-            color: var(--accent-color);
-            font-style: italic;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .skill-badge {
+        .timeline-date {
             background: var(--bg-body);
-            padding: 10px;
-            border-radius: 5px;
-            border-left: 3px solid var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            font-weight: 500;
+            /* Précision : alignement mathématique des chiffres */
+            font-variant-numeric: tabular-nums; 
+            letter-spacing: 0.5px;
         }
 
-        .btn-container {
+        .timeline-item.current .timeline-date {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .timeline-content {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .timeline-content ul {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+            list-style-type: none;
+        }
+
+        .timeline-content li {
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+        
+        .timeline-content li::before {
+            content: "→";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: -1.2rem;
+            opacity: 0.7;
+        }
+
+        /* === SKILLS PATTERN === */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .skill-group {
+            background: var(--bg-body);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .skill-group:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .skill-group-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-group-header svg {
+            width: 20px;
+            height: 20px;
+            color: var(--primary);
+        }
+
+        .skill-group-header h4 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--bg-card);
+            color: var(--text-muted);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .skill-group:hover .tag {
+            background: var(--bg-body);
+            color: var(--text-main);
+            border-color: var(--border);
+        }
+        
+        .tag:hover {
+            transform: scale(1.05);
+            color: var(--primary) !important;
+            border-color: var(--primary) !important;
+        }
+
+        /* === CTA BUTTON === */
+        .cta-container {
             text-align: center;
-            margin-top: 40px;
+            padding: 2rem 0;
         }
 
         .btn-download {
-            background-color: var(--accent-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--primary);
             color: white;
-            padding: 15px 30px;
-            text-decoration: none;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
-            font-weight: bold;
-            transition: background 0.3s ease;
-            display: inline-block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 20px -10px var(--primary);
+            transition: var(--transition);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Effet "Shimmer" (Brillance) */
+        .btn-download::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            20% { transform: translateX(100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
         }
 
         .btn-download:hover {
-            background-color: #2980b9;
+            background: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -10px var(--primary);
+            color: white;
         }
 
+        /* === ANIMATIONS (Scroll Reveal) === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === IMPRESSION (Print CSS) === */
+        /* Rend le CV parfait s'il est enregistré en PDF via le navigateur */
+        @media print {
+            body {
+                background: #fff !important;
+                color: #000 !important;
+            }
+            .app-container {
+                max-width: 100%;
+                padding: 0;
+                gap: 1.5rem;
+            }
+            .top-bar, .cta-container {
+                display: none !important;
+            }
+            .hero {
+                padding: 1.5rem;
+                box-shadow: none !important;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+            .hero::before {
+                display: none;
+            }
+            .hero-content h1 {
+                background: none;
+                -webkit-text-fill-color: #000;
+                color: #000;
+            }
+            .card {
+                box-shadow: none !important;
+                border: 1px solid #ddd;
+                padding: 1.5rem;
+                break-inside: avoid; /* Évite qu'une carte soit coupée sur 2 pages */
+                page-break-inside: avoid;
+            }
+            .bento-grid {
+                gap: 1.5rem;
+                display: flex;
+                flex-direction: column;
+            }
+            .bento-col {
+                width: 100%;
+            }
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            .contact-item {
+                border: none;
+                padding: 0;
+                margin-right: 15px;
+            }
+            .skill-group {
+                border-color: #ddd;
+                break-inside: avoid;
+            }
+            .tag {
+                border-color: #ddd;
+            }
+        }
+
+        /* Responsive Adjustments */
         @media (max-width: 600px) {
-            .container { margin: 10px; padding: 20px; }
-            .item-header { flex-direction: column; }
+            .app-container { padding: 1rem; }
+            .hero { padding: 1.5rem; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .card { padding: 1.5rem; }
+            .timeline-header { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Kylian Trévisan </h1>
-        <div class="subtitle">Agent de Sécurité </div>
-        <div class="contact-info">
-            <span>📍 France </span>
-            <span>📧 kylian.trevisan@orange.fr </span>
-            <span>🚗 Permis B </span>
-            <span>🌐 <a href="https://cv-ktrv-git-main-klntrvs-projects.vercel.app/" target="_blank">https://cv-ktrv-git-main-klntrvs-projects.vercel.app/</a> </span>
+<div class="app-container">
+    
+    <!-- Theme Toggle -->
+    <div class="top-bar">
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+            <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero reveal">
+        <div class="hero-content">
+            <h1>Kylian Trévisan</h1>
+            <h2>Agent de Sécurité & Infrastructure (Data Center)</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    France
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    kylian.trevisan@orange.fr
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="7" cy="15" r="1"></circle><circle cx="17" cy="15" r="1"></circle><path d="M14 11V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v4"></path></svg>
+                    Permis B
+                </div>
+                <a href="https://cv-ktrv-git-main-klntrvs-projects.vercel.app/" target="_blank" class="contact-item" style="cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    Portfolio / Web
+                </a>
+            </div>
+
+            <div class="bio">
+                Actuellement en poste dans un Data Center à Gland. Je possède une solide expérience dans la gestion de la sécurité, l'accueil technique et la résolution de situations complexes en environnement international. Mon approche allie rigueur procédurale absolue et sens du service.
+            </div>
+
+            <!-- La "Sauce Magique" -->
+            <div class="operational-assets">
+                <div class="asset-badge">
+                    <span class="status-dot"></span>
+                    Habilité Environnements Critiques
+                </div>
+                <div class="asset-badge">
+                    <span class="status-dot" style="background-color: #3b82f6; box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);"></span>
+                    Interface Humain / Technique
+                </div>
+                <div class="asset-badge">
+                    <span class="status-dot" style="background-color: #8b5cf6; box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);"></span>
+                    Sang-froid & Gestion de Crise
+                </div>
+            </div>
         </div>
     </header>
 
-    <section id="presentation">
-        <p>
-            Actuellement Agent de Loge dans un Data Center à Gland. 
-            Je possède une solide expérience dans la gestion de la sécurité, l'accueil technique et la gestion de situations complexes en environnement international.
-        </p>
-    </section>
-
-    <section id="experiences">
-        <h2>Expériences Professionnelles</h2>
+    <!-- Main Bento Grid -->
+    <div class="bento-grid">
         
-        <div class="exp-item">
-            <div class="item-header">
-                <span>Agent de Loge - Securitas (Data Center) </span>
-                <span class="date">Depuis Mai 2021 </span>
-            </div>
-            <ul>
-                <li>Gestion des accès, accueil et accompagnement des clients et techniciens.</li>
-                <li>Surveillance physique et vidéo, opération du système de sécurité incendie.</li>
-                <li>Permanence téléphonique et gestion des demandes d'infrastructure.</li>
-            </ul>
+        <!-- Left Column: Experience & Education -->
+        <div class="bento-col">
+            <section class="card reveal" style="margin-bottom: 2rem;">
+                <div class="card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <h3>Expériences Professionnelles</h3>
+                </div>
+                
+                <div class="timeline">
+                    <!-- Exp 1 (CURRENT) -->
+                    <div class="timeline-item current">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-title">Agent de Loge & Sûreté <span class="timeline-company">(Data Center)</span></div>
+                                <div class="timeline-company" style="font-size: 0.9em; color: var(--text-muted);">Securitas</div>
+                            </div>
+                            <span class="timeline-date">Depuis Mai 2021</span>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Gestion stricte des accès et accompagnement des techniciens en zone de haute sécurité.</li>
+                                <li>Surveillance physique/vidéo et opération continue du système de sécurité incendie.</li>
+                                <li>Permanence téléphonique et coordination immédiate des demandes d'infrastructure.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Exp 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-title">Agent de Sécurité</div>
+                                <div class="timeline-company" style="font-size: 0.9em; color: var(--text-muted);">Securitas (Genève)</div>
+                            </div>
+                            <span class="timeline-date">Avril 2016 - Avril 2021</span>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Contrôle d'accès et escorte sur sites sécurisés.</li>
+                                <li>Sécurisation de centres d'hébergement d'urgence (Covid-19) et sites à risques.</li>
+                                <li>Gestion des urgences et application des mesures sanitaires.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Exp 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-title">Guide Accrobranche</div>
+                                <div class="timeline-company" style="font-size: 0.9em; color: var(--text-muted);">Forest-Land</div>
+                            </div>
+                            <span class="timeline-date">2013 - 2018 (Saisonnier)</span>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Sécurisation des activités et secours en hauteur.</li>
+                                <li>Instruction et entretien du matériel d'escalade.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card reveal">
+                <div class="card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                    <h3>Formation</h3>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title" style="font-size: 1.05rem;">Niveau Licence de Physique</div>
+                            <span class="timeline-date">2017 - 2018</span>
+                        </div>
+                        <div class="timeline-content">Faculté des Sciences, Montpellier</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title" style="font-size: 1.05rem;">Année préparatoire scientifique</div>
+                            <span class="timeline-date">2016 - 2017</span>
+                        </div>
+                        <div class="timeline-content">Cours Galien</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title" style="font-size: 1.05rem;">Baccalauréat Économie</div>
+                            <span class="timeline-date">2015 - 2016</span>
+                        </div>
+                        <div class="timeline-content">Lycée Jeanne d'Arc</div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <div class="exp-item">
-            <div class="item-header">
-                <span>Agent de Sécurité - Securitas (Genève) </span>
-                <span class="date">Avril 2016 - Avril 2021 </span>
-            </div>
-            <ul>
-                <li>Contrôle d'accès et escorte sur sites sécurisés.</li>
-                <li>Sécurisation de centres d'hébergement d'urgence (Covid-19) et sites à risques.</li>
-                <li>Gestion des urgences et application des mesures sanitaires.</li>
-            </ul>
-        </div>
+        <!-- Right Column: Skills -->
+        <div class="bento-col">
+            <section class="card reveal" style="height: 100%;">
+                <div class="card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <h3>Compétences</h3>
+                </div>
+                
+                <div class="skills-container">
+                    
+                    <!-- Skill Group: Security -->
+                    <div class="skill-group">
+                        <div class="skill-group-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <h4>Sécurité & Infrastructure</h4>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Formation BA4 électrique</span>
+                            <span class="tag">Systèmes Incendie</span>
+                            <span class="tag">Vidéosurveillance</span>
+                            <span class="tag">Gestion des accès</span>
+                        </div>
+                    </div>
 
-        <div class="exp-item">
-            <div class="item-header">
-                <span>Guide Accrobranche - Forest-Land </span>
-                <span class="date">2013 - 2018 (Saisonnier) </span>
-            </div>
-            <ul>
-                <li>Sécurisation des activités et secours en hauteur.</li>
-                <li>Instruction et entretien du matériel d'escalade.</li>
-            </ul>
-        </div>
-    </section>
+                    <!-- Skill Group: IT -->
+                    <div class="skill-group">
+                        <div class="skill-group-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                            <h4>Informatique & Outils</h4>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Word</span>
+                            <span class="tag">Excel</span>
+                            <span class="tag">Outils d'Intelligence Artificielle</span>
+                            <span class="tag">Systèmes de Loge</span>
+                        </div>
+                    </div>
 
-    <section id="competences">
-        <h2>Compétences</h2>
-        <div class="skills-container">
-            <div class="skill-badge">
-                <strong>Informatique :</strong> Word, Excel, Outils IA 
-            </div>
-            <div class="skill-badge">
-                <strong>Sécurité :</strong> Formation BA4 électrique , Systèmes incendie/vidéo 
-            </div>
-            <div class="skill-badge">
-                <strong>Langues :</strong> Français (Maternel), Anglais (B2/C1) 
-            </div>
-            <div class="skill-badge">
-                <strong>Soft Skills :</strong> Analyse, Travail en équipe, Gestion du stress 
-            </div>
-        </div>
-    </section>
+                    <!-- Skill Group: Soft Skills -->
+                    <div class="skill-group">
+                        <div class="skill-group-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <h4>Savoir-Être</h4>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Esprit d'Analyse</span>
+                            <span class="tag">Travail en équipe</span>
+                            <span class="tag">Gestion du stress</span>
+                            <span class="tag">Relation Client</span>
+                        </div>
+                    </div>
 
-    <section id="formation">
-        <h2>Formation</h2>
-        <div class="edu-item">
-            <div class="item-header">
-                <span>Licence de Physique (Inachevée) - Fac de Science, Montpellier </span>
-                <span class="date">2017 - 2018 </span>
-            </div>
-        </div>
-        <div class="edu-item">
-            <div class="item-header">
-                <span>Année préparatoire scientifique - Cours Galien </span>
-                <span class="date">2016 - 2017 </span>
-            </div>
-        </div>
-        <div class="edu-item">
-            <div class="item-header">
-                <span>Baccalauréat Économie - Lycée Jeanne d'Arc </span>
-                <span class="date">2015 - 2016 </span>
-            </div>
-        </div>
-    </section>
+                    <!-- Skill Group: Languages -->
+                    <div class="skill-group">
+                        <div class="skill-group-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            <h4>Langues</h4>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Français (Maternel)</span>
+                            <span class="tag">Anglais (B2/C1)</span>
+                        </div>
+                    </div>
 
-    <div class="btn-container">
-        <a href="CV 1.docx.pdf" class="btn-download" download>Télécharger mon CV en PDF</a>
+                </div>
+            </section>
+        </div>
     </div>
+
+    <!-- Download CTA -->
+    <div class="cta-container reveal">
+        <a href="CV 1.docx.pdf" class="btn-download" download>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Télécharger mon CV (PDF)
+        </a>
+    </div>
+
 </div>
+
+<!-- Logic -->
+<script>
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    const sunIcon = document.getElementById('sunIcon');
+    const moonIcon = document.getElementById('moonIcon');
+
+    // Check system preference on load
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        htmlElement.setAttribute('data-theme', 'dark');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        htmlElement.setAttribute('data-theme', newTheme);
+        
+        if (newTheme === 'dark') {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        } else {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        }
+    });
+
+    // Scroll Reveal Animation (Micro-interaction)
+    // Désactivé si l'utilisateur a activé la préférence système "prefers-reduced-motion"
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function reveal() {
+        if (prefersReducedMotion) {
+            document.querySelectorAll(".reveal").forEach(el => el.classList.add("active"));
+            return;
+        }
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 50; 
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    
+    // Trigger once on load
+    setTimeout(reveal, 100);
+</script>
 
 </body>
 </html>
