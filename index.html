@@ -373,7 +373,6 @@
             color: var(--text-muted);
             border: 1px solid var(--border);
             font-weight: 500;
-            /* Précision : alignement mathématique des chiffres */
             font-variant-numeric: tabular-nums; 
             letter-spacing: 0.5px;
         }
@@ -503,7 +502,6 @@
             overflow: hidden;
         }
 
-        /* Effet "Shimmer" (Brillance) */
         .btn-download::after {
             content: '';
             position: absolute;
@@ -542,7 +540,6 @@
         }
 
         /* === IMPRESSION (Print CSS) === */
-        /* Rend le CV parfait s'il est enregistré en PDF via le navigateur */
         @media print {
             body {
                 background: #fff !important;
@@ -574,7 +571,7 @@
                 box-shadow: none !important;
                 border: 1px solid #ddd;
                 padding: 1.5rem;
-                break-inside: avoid; /* Évite qu'une carte soit coupée sur 2 pages */
+                break-inside: avoid;
                 page-break-inside: avoid;
             }
             .bento-grid {
@@ -634,7 +631,11 @@
             <div class="contact-grid">
                 <div class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    France
+                    133 rue de l'église, Ornex (01210)
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    (33) 6.38.69.74.96
                 </div>
                 <div class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -651,10 +652,9 @@
             </div>
 
             <div class="bio">
-                Actuellement en poste dans un Data Center à Gland. Je possède une solide expérience dans la gestion de la sécurité, l'accueil technique et la résolution de situations complexes en environnement international. Mon approche allie rigueur procédurale absolue et sens du service.
+                Actuellement en poste dans un Data Center à Gland et occupant le poste d'agent de loge. Nous travaillons quotidiennement avec des personnes anglophones et sommes amenés à gérer tout un tas de situations différentes en environnement international. Mon expérience m’a permis de développer une grande capacité d’adaptation ainsi qu’un sens aigu des responsabilités.
             </div>
 
-            <!-- La "Sauce Magique" -->
             <div class="operational-assets">
                 <div class="asset-badge">
                     <span class="status-dot"></span>
@@ -689,15 +689,16 @@
                         <div class="timeline-header">
                             <div>
                                 <div class="timeline-title">Agent de Loge & Sûreté <span class="timeline-company">(Data Center)</span></div>
-                                <div class="timeline-company" style="font-size: 0.9em; color: var(--text-muted);">Securitas</div>
+                                <div class="timeline-company" style="font-size: 0.9em; color: var(--text-muted);">Securitas, Gland</div>
                             </div>
                             <span class="timeline-date">Depuis Mai 2021</span>
                         </div>
                         <div class="timeline-content">
                             <ul>
-                                <li>Gestion stricte des accès et accompagnement des techniciens en zone de haute sécurité.</li>
-                                <li>Surveillance physique/vidéo et opération continue du système de sécurité incendie.</li>
-                                <li>Permanence téléphonique et coordination immédiate des demandes d'infrastructure.</li>
+                                <li>Services d'accueil/de loge et de sécurité dans un bâtiment technique, sensibilisation à la sécurité.</li>
+                                <li>Surveillance physique/vidéo, patrouilles et opération continue du système de sécurité incendie (SSI).</li>
+                                <li>Permanence téléphonique, gestion des demandes de clients ou de personnels de l'infrastructure et accompagnement des techniciens.</li>
+                                <li>Gestion de tous types de situations pour le bon déroulement des opérations.</li>
                             </ul>
                         </div>
                     </div>
@@ -707,15 +708,15 @@
                         <div class="timeline-header">
                             <div>
                                 <div class="timeline-title">Agent de Sécurité</div>
-                                <div class="timeline-company" style="font-size: 0.9em; color: var(--text-muted);">Securitas (Genève)</div>
+                                <div class="timeline-company" style="font-size: 0.9em; color: var(--text-muted);">Securitas, Genève</div>
                             </div>
                             <span class="timeline-date">Avril 2016 - Avril 2021</span>
                         </div>
                         <div class="timeline-content">
                             <ul>
-                                <li>Contrôle d'accès et escorte sur sites sécurisés.</li>
-                                <li>Sécurisation de centres d'hébergement d'urgence (Covid-19) et sites à risques.</li>
-                                <li>Gestion des urgences et application des mesures sanitaires.</li>
+                                <li>Contrôle d'accès sur sites fermés, escorte de visiteurs et sécurisation de zones à risques (chantiers, portes).</li>
+                                <li>Sécurisation de centres d'hébergement d'urgence suite à la première vague de Covid-19.</li>
+                                <li>Gestion des urgences, renforcement et application stricte des mesures sanitaires.</li>
                             </ul>
                         </div>
                     </div>
@@ -724,15 +725,31 @@
                     <div class="timeline-item">
                         <div class="timeline-header">
                             <div>
-                                <div class="timeline-title">Guide Accrobranche</div>
-                                <div class="timeline-company" style="font-size: 0.9em; color: var(--text-muted);">Forest-Land</div>
+                                <div class="timeline-title">Secrétariat</div>
+                                <div class="timeline-company" style="font-size: 0.9em; color: var(--text-muted);">Bureau de contraventions, Genève</div>
                             </div>
-                            <span class="timeline-date">2013 - 2018 (Saisonnier)</span>
+                            <span class="timeline-date">Juillet 2016</span>
                         </div>
                         <div class="timeline-content">
                             <ul>
-                                <li>Sécurisation des activités et secours en hauteur.</li>
-                                <li>Instruction et entretien du matériel d'escalade.</li>
+                                <li>Tri du courrier et gestion rigoureuse des archives.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Exp 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-title">Guide Accrobranche</div>
+                                <div class="timeline-company" style="font-size: 0.9em; color: var(--text-muted);">Forest-Land, Divonne</div>
+                            </div>
+                            <span class="timeline-date">Juin 2013 - Oct 2018 (Saisonnier)</span>
+                        </div>
+                        <div class="timeline-content">
+                            <ul>
+                                <li>Sécurisation et assurance des activités, secours des personnes bloquées en hauteur.</li>
+                                <li>Préparation, instruction au public et entretien méticuleux du matériel d'escalade.</li>
                             </ul>
                         </div>
                     </div>
@@ -747,7 +764,7 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-header">
-                            <div class="timeline-title" style="font-size: 1.05rem;">Niveau Licence de Physique</div>
+                            <div class="timeline-title" style="font-size: 1.05rem;">Licence de Physique (Inachevée)</div>
                             <span class="timeline-date">2017 - 2018</span>
                         </div>
                         <div class="timeline-content">Faculté des Sciences, Montpellier</div>
@@ -757,14 +774,14 @@
                             <div class="timeline-title" style="font-size: 1.05rem;">Année préparatoire scientifique</div>
                             <span class="timeline-date">2016 - 2017</span>
                         </div>
-                        <div class="timeline-content">Cours Galien</div>
+                        <div class="timeline-content">Cours Galien, Montpellier</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-header">
                             <div class="timeline-title" style="font-size: 1.05rem;">Baccalauréat Économie</div>
                             <span class="timeline-date">2015 - 2016</span>
                         </div>
-                        <div class="timeline-content">Lycée Jeanne d'Arc</div>
+                        <div class="timeline-content">Lycée Jeanne d'Arc, Gex</div>
                     </div>
                 </div>
             </section>
@@ -788,7 +805,7 @@
                         </div>
                         <div class="tags">
                             <span class="tag">Formation BA4 électrique</span>
-                            <span class="tag">Systèmes Incendie</span>
+                            <span class="tag">Systèmes Incendie (SSI)</span>
                             <span class="tag">Vidéosurveillance</span>
                             <span class="tag">Gestion des accès</span>
                         </div>
@@ -801,9 +818,8 @@
                             <h4>Informatique & Outils</h4>
                         </div>
                         <div class="tags">
-                            <span class="tag">Word</span>
-                            <span class="tag">Excel</span>
-                            <span class="tag">Outils d'Intelligence Artificielle</span>
+                            <span class="tag">Word & Excel</span>
+                            <span class="tag">Outils IA</span>
                             <span class="tag">Systèmes de Loge</span>
                         </div>
                     </div>
@@ -815,7 +831,7 @@
                             <h4>Savoir-Être</h4>
                         </div>
                         <div class="tags">
-                            <span class="tag">Esprit d'Analyse</span>
+                            <span class="tag">Capacités d'Analyse</span>
                             <span class="tag">Travail en équipe</span>
                             <span class="tag">Gestion du stress</span>
                             <span class="tag">Relation Client</span>
@@ -830,7 +846,22 @@
                         </div>
                         <div class="tags">
                             <span class="tag">Français (Maternel)</span>
-                            <span class="tag">Anglais (B2/C1)</span>
+                            <span class="tag">Anglais (B2 à C1 - Oral/Écrit)</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Group: Hobbies -->
+                    <div class="skill-group">
+                        <div class="skill-group-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+                            <h4>Loisirs</h4>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Informatique & Simulation</span>
+                            <span class="tag">Drone FPV</span>
+                            <span class="tag">Volleyball</span>
+                            <span class="tag">Jeux vidéo</span>
+                            <span class="tag">Lecture</span>
                         </div>
                     </div>
 
@@ -839,68 +870,54 @@
         </div>
     </div>
 
-    <!-- Download CTA -->
+    <!-- CTA Download Button -->
     <div class="cta-container reveal">
-        <a href="cv.pdf" class="btn-download" download>
+        <!-- L'attribut onclick="window.print()" lance l'interface d'impression native qui permet de sauvegarder en PDF proprement grâce à tes règles @media print -->
+        <button class="btn-download" onclick="window.print()">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            Télécharger mon CV (PDF)
-        </a>
+            Télécharger le CV (PDF)
+        </button>
     </div>
 
 </div>
 
-<!-- Logic -->
+<!-- Scripts pour l'interactivité -->
 <script>
-    // Theme Toggle Logic
-    const themeToggleBtn = document.getElementById('themeToggle');
-    const htmlElement = document.documentElement;
-    const sunIcon = document.getElementById('sunIcon');
+    // --- Système de Thème (Clair/Sombre) ---
+    const themeToggle = document.getElementById('themeToggle');
     const moonIcon = document.getElementById('moonIcon');
+    const sunIcon = document.getElementById('sunIcon');
+    const htmlElement = document.documentElement;
 
-    // Check system preference on load
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        htmlElement.setAttribute('data-theme', 'dark');
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-    }
-
-    themeToggleBtn.addEventListener('click', () => {
+    themeToggle.addEventListener('click', () => {
         const currentTheme = htmlElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        htmlElement.setAttribute('data-theme', newTheme);
-        
-        if (newTheme === 'dark') {
-            sunIcon.style.display = 'none';
+        if (currentTheme === 'light') {
+            htmlElement.setAttribute('data-theme', 'dark');
             moonIcon.style.display = 'block';
+            sunIcon.style.display = 'none';
         } else {
-            sunIcon.style.display = 'block';
+            htmlElement.setAttribute('data-theme', 'light');
             moonIcon.style.display = 'none';
+            sunIcon.style.display = 'block';
         }
     });
 
-    // Scroll Reveal Animation (Micro-interaction)
-    // Désactivé si l'utilisateur a activé la préférence système "prefers-reduced-motion"
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
+    // --- Animations au Défilement (Scroll Reveal) ---
     function reveal() {
-        if (prefersReducedMotion) {
-            document.querySelectorAll(".reveal").forEach(el => el.classList.add("active"));
-            return;
-        }
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
             var windowHeight = window.innerHeight;
             var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 50; 
+            var elementVisible = 50; // Déclenchement 50px avant l'apparition
             if (elementTop < windowHeight - elementVisible) {
                 reveals[i].classList.add("active");
             }
         }
     }
+    // Écouteur d'événement sur le scroll
     window.addEventListener("scroll", reveal);
-    
-    // Trigger once on load
-    setTimeout(reveal, 100);
+    // Exécution immédiate au chargement pour afficher les premiers éléments
+    reveal();
 </script>
 
 </body>
